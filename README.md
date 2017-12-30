@@ -4,14 +4,12 @@ Gradient is a mobile web-application build with firebase, handlebars and vanilla
 Gradient is a place where student and teachers can upload projects that they want to show to eachother, or share with the world.
 
 ## Dependencies ##
-------------------
 Gradient is built using vanilla Javascript, Firebase and Handlebars.
 Automation is managed using gulp and deploy tools are managed using npm.
 Gradient is mostly written in ES6, for wider browser support we transpile the code using BabelJs. 
 
 
 ## Firebase ##
---------------
 ### Authentication ###
 For authentication i'm using firebase auth. Signing up through facebook, twitter or any other 3rd party is not possible yet.
 On Signup, some basic user information is also saved to the realtime-database, this includes name, email, date of creation and follower information.
@@ -48,10 +46,10 @@ An article belongs to a blog, this stores very few information as well. Articles
 An account page stores all the information about a user, by checking the followers structure we decide if the user is already follwing the account or not, then update the follow button.
 If follow is clicked, the userid is stored under `users/userId/following/profileId` and `users/profileId/followers/userId`. Next to that a counter is updated, for this counter we make use of a transaction, once again to keep our database consistent.
 
-#### Feed #### 
+#### Feed ####
 Here you can see all the projects of the profiles a user is following. This happens with a 'JOIN' `users/userId/following/projectIds` and `users-projects/profileId`.
 
-#### Security rules #### 
+#### Security rules ####
 This project is also using basic security rules such as `read`, `write` and `indexOn`. Data validation is not implemented yet.
 
 ### Handlebars ###
